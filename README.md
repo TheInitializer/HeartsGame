@@ -1,5 +1,5 @@
 #Hearts Game
-A Python AI that plays the classic game Hearts
+*A Python AI that plays the classic game Hearts.*
 
 This is still really buggy, so if someone can help with debugging that'd be great
 
