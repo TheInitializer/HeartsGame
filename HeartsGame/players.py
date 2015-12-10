@@ -61,11 +61,14 @@ class AI:
                             highestCard = card
                             break
                     for card in self.hand:
-                        if card.rank > play.rank and card.suit == cardsPlayed[0].suit and card.rank < highestCard:
+                        if card.rank > play.rank and card.suit == cardsPlayed[0].suit and card.rank < highestCard: #GLITCH
                             play = card
                             break
-                    if play == cards.Card(0, 0):
-                        play = highestCard
+                    if play not in self.hand:
+                        for card in self.hand:
+                            if card.rank >= play.rank and card.suit == cardsPlayed[0].suit:
+                                play = card
+                                break
                 else:
                     if len(cardsPlayed) == numPlayers - 1:
                         hasQS = cards.Card(2, 11) in self.hand
@@ -102,7 +105,7 @@ class AI:
             else:
                 hasHearts = False
                 hasQS     = False
-                for card in hand:
+                for card in self.hand:
                     if card.suit == 0:
                         hasHearts = True
                         break
