@@ -9,7 +9,6 @@ class Card:
     )
     rankNames = (
         "A",
-        "1",
         "2",
         "3",
         "4",
