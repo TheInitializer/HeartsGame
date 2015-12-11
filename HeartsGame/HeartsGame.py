@@ -35,7 +35,7 @@ while not done:             # main loop
     winningCard = cardsPlayed[0]
     
     for card in cardsPlayed:
-        if card.suit == cardsPlayed[0].suit and card.rank < winningCard.rank:
+        if card.suit == cardsPlayed[0].suit and card.rank > winningCard.rank:
             winningCard = card
     for player in playerOrder:
         if player.lastPlay == winningCard:
