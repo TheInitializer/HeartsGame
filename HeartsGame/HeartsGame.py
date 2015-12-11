@@ -18,12 +18,18 @@ heartsBroken = False
 
 while not done:             # main loop
     cardsPlayed = []
-    l = True                 # being lazy here
+    leading = True                 # being lazy here
+    print "\n--- New Trick ---\n"
     for i in playerOrder:
-        play = i.play(l, heartsBroken, cardsPlayed, 4)
+        if len(i.hand) == 0:
+            done = True
+            break
+        play = i.play(leading, heartsBroken, cardsPlayed, 4)
         print play[0]
         cardsPlayed.append(play[1])
-        l = False
+        leading = False
+
+    if done: break
 
     # Decide who won the trick
     winningCard = cardsPlayed[0]
@@ -45,6 +51,8 @@ while not done:             # main loop
 
     # New leader is winner
     playerOrder = playerOrder[playerOrder.index(winner):]+playerOrder[:playerOrder.index(winner)]
+
+    print "\n--- %s won trick ---\n"%winner.name
 
 # Compare points
 winner = playerOrder[0]
